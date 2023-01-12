@@ -6,7 +6,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const PORT = 4000
+const PORT = 80
 
 app.get("/", (_, res) => {
     const encodedParams = new URLSearchParams();
@@ -37,4 +37,4 @@ app.get("/", (_, res) => {
 })
 
 app.listen(PORT)
-console.log("server runnning on port 4000")
+console.log("server runnning on port 80")
