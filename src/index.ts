@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors"
 import axios from 'axios';
+import process from "process";
 
 const app = express()
 app.use(cors())
@@ -36,5 +37,5 @@ app.get("/", (_, res) => {
         });
 })
 
-app.listen(PORT)
+app.listen(process.env.PORT || 3000)
 console.log("server runnning on port 80")

@@ -6,10 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const axios_1 = __importDefault(require("axios"));
+const process_1 = __importDefault(require("process"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-const PORT = 4000;
+const PORT = 80;
 app.get("/", (_, res) => {
     const encodedParams = new URLSearchParams();
     encodedParams.set('grant_type', 'client_credentials');
@@ -27,7 +28,7 @@ app.get("/", (_, res) => {
     axios_1.default
         .request(options)
         .then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         res.send(response.data);
     })
         .catch(function (error) {
@@ -35,5 +36,5 @@ app.get("/", (_, res) => {
         res.send(error.response);
     });
 });
-app.listen(PORT);
-console.log("server runnning on port 4000");
+app.listen(process_1.default.env.PORT || 3000);
+console.log("server runnning on port 80");
