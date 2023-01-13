@@ -4,12 +4,8 @@ exports.client = void 0;
 const redis_1 = require("redis");
 const constants_1 = require("../constants");
 exports.client = (0, redis_1.createClient)({
-    socket: {
-        host: constants_1.redisURL,
-        port: constants_1.redisPort
-    },
-    password: ""
+    url: `${constants_1.redisURL}:${constants_1.redisPort}`,
 });
-exports.client.on('error', err => {
-    console.log('Error ' + err);
-});
+// client.on("error", (err) => {
+//   console.log("Error " + err)
+// })

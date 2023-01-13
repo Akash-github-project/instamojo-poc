@@ -1,14 +1,10 @@
 import { createClient } from "redis"
-import { redisPort, redisURL } from "../constants";
+import { redisPort, redisURL } from "../constants"
 
 export const client = createClient({
-    socket: {
-        host: redisURL,
-        port: redisPort
-    },
-    password: ""
-});
+  url: `${redisURL}:${redisPort}`,
+})
 
-client.on('error', err => {
-    console.log('Error ' + err);
-});
+// client.on("error", (err) => {
+//   console.log("Error " + err)
+// })
