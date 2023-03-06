@@ -10,11 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const redisInstance_1 = require("./db/redisInstance");
+//import { client } from "./db/redisInstance";
 const webhookRouter = (0, express_1.Router)();
-webhookRouter.post("/completed", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield redisInstance_1.client.set("response", req.body.toString());
-    res.send({ ok: "" });
+webhookRouter.post("/completed", (_, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send({ success: "success" });
+    // await client.set("response", req.body.toString())
+    // res.send({ ok: "" })
     // const newData = await client.get("response")
     // res.send({data:newData})
 }));
